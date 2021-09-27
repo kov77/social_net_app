@@ -10,10 +10,10 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Setings/Settings';
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
-  console.log(props);
-  return (
+return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
@@ -22,7 +22,8 @@ const App = (props) => {
           <Route
             path="/dialogs"
             render={() => (
-              <Dialogs state={props.state.dialogsPage} store={props.store} />
+              <DialogsContainer
+                  store={props.store} />
             )}
           />
 
@@ -30,8 +31,7 @@ const App = (props) => {
             path="/profile"
             render={() => (
               <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
+                store={props.store}
               />
             )}
           />
