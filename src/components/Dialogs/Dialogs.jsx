@@ -5,14 +5,14 @@ import style from './Dialogs.module.css';
 import Message from './Message/Message';
 
 let Dialogs = (props) => {
-  let state = props.dialogsPage;
-  let dialogsElements = props.state.dialogsData.map((dialog) => {
+
+  let dialogsElements = props.dialogsPage.dialogsData.map((dialog) => {
     return <DialogItem id={dialog.id} name={dialog.name} />;
   });
-  let messagesElements = props.state.messagesData.map((message) => {
+  let messagesElements = props.dialogsPage.messagesData.map((message) => {
     return <Message message={message.message} id={message.id} />;
   });
-  let newMessageBody = props.newMessageText;
+  let newMessageBody = props.dialogsPage.newMessageText;
   let onSendMessageClick = () => {
     props.sendMessage();
   };
